@@ -291,31 +291,42 @@ class KVPoolScheduler:
         head_or_tp_ranks = self.tp_size // self.put_step
         cache_family = get_group_cache_family(self.kv_cache_group_families, kv_cache_group_id)
         keys_by_block = []
+        key_prefixes: list[str] | None = None
         for block_hash in block_hashes:
-            block_keys: list[str] = []
             chunk_hash = block_hash if isinstance(block_hash, str) else block_hash.hex()
-            pp_ranks = [self.pp_rank] if include_layers else range(self.pp_size)
-            for dcp_rank in range(self.dcp_size):
-                for head_or_tp_rank in range(head_or_tp_ranks):
-                    for pp_rank in pp_ranks:
-                        pool_key = PoolKey(
-                            KeyMetadata(
-                                self.model_name,
-                                head_or_tp_rank,
-                                dcp_rank,
-                                pp_rank,
-                                kv_cache_group_id=kv_cache_group_id,
-                                cache_family=cache_family,
-                            ),
-                            chunk_hash,
-                        )
-                        if include_layers:
-                            block_keys.extend(
-                                layer_key.to_string()
-                                for layer_key in pool_key.split_layers(self.num_layers, self.pp_layer_offset)
+            if not keys_by_block:
+                block_keys: list[str] = []
+                first_chunk_hash = chunk_hash
+                pp_ranks = [self.pp_rank] if include_layers else range(self.pp_size)
+                for dcp_rank in range(self.dcp_size):
+                    for head_or_tp_rank in range(head_or_tp_ranks):
+                        for pp_rank in pp_ranks:
+                            pool_key = PoolKey(
+                                KeyMetadata(
+                                    self.model_name,
+                                    head_or_tp_rank,
+                                    dcp_rank,
+                                    pp_rank,
+                                    kv_cache_group_id=kv_cache_group_id,
+                                    cache_family=cache_family,
+                                ),
+                                chunk_hash,
                             )
-                        else:
-                            block_keys.append(pool_key.to_string())
+                            if include_layers:
+                                block_keys.extend(
+                                    layer_key.to_string()
+                                    for layer_key in pool_key.split_layers(self.num_layers, self.pp_layer_offset)
+                                )
+                            else:
+                                block_keys.append(pool_key.to_string())
+            else:
+                # Only the final hash changes across blocks. Derive prefixes
+                # from the canonical serializers without parsing delimiters.
+                # Defer this work for a single block and keep it local to the
+                # lookup so no request hashes or mutable config are cached.
+                if key_prefixes is None:
+                    key_prefixes = [key.removesuffix(first_chunk_hash) for key in keys_by_block[0]]
+                block_keys = [prefix + chunk_hash for prefix in key_prefixes]
             keys_by_block.append(block_keys)
         return keys_by_block
 
