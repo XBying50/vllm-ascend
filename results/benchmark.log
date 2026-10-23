@@ -1,0 +1,13 @@
+/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/.venv-full/lib/python3.12/site-packages/transformers/loss/loss_for_object_detection.py:27: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.optimize import linear_sum_assignment
+Triton is installed, but `triton.backends` could not be imported. Disabling Triton.
+Failed to import from vllm._C: ModuleNotFoundError("No module named 'vllm._C'")
+Failed to register custom ops, all custom ops will be disabled. error=No module named 'vllm_ascend.vllm_ascend_C'. The custom ops library might not be installed or the environment is not configured correctly. Please check the custom ops installation and environment variables.
+empty baseline_us 0.475 candidate_us 0.49 speedup 0.971
+single baseline_us 5.695 candidate_us 5.766 speedup 0.988
+single_layerwise baseline_us 27.211 candidate_us 27.135 speedup 1.003
+long_prompt baseline_us 5206.284 candidate_us 757.02 speedup 6.877
+multi_pp_heads baseline_us 30378.638 candidate_us 1163.069 speedup 26.119
+multi_cp_pp_heads baseline_us 63241.287 candidate_us 3225.189 speedup 19.609
+replicated_kv_heads baseline_us 16165.907 candidate_us 777.093 speedup 20.803
+layerwise baseline_us 153445.355 candidate_us 14387.695 speedup 10.665

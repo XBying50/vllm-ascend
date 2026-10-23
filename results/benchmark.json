@@ -1,0 +1,1604 @@
+{
+  "python": "3.12.9",
+  "platform": "Linux-5.10.0-182.0.0.95.r2673_211.hce2.aarch64-aarch64-with-glibc2.39",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "dependency_mode": "CPU; repository _mock_deps; actual key classes and scheduler method",
+  "baseline_sha256": "cddb93d98cf8766052670347fe82b18cdde97899b20aaa84f0af1d23c1ae6961",
+  "candidate_sha256": "e7e83ba1f9a91f1aaadd986fc98d6cc237a218b085576aeb65e9ae284b7ef900",
+  "repeats": 5,
+  "cases": {
+    "empty": {
+      "config": [
+        0,
+        8,
+        1,
+        2,
+        4,
+        2,
+        32,
+        false
+      ],
+      "loops_per_repeat": 10000,
+      "latency_us": {
+        "baseline": [
+          0.4767481,
+          0.47502,
+          0.47545,
+          0.474794,
+          0.48118419999999995
+        ],
+        "candidate": [
+          0.4896115,
+          0.4893825,
+          0.49098149999999996,
+          0.4910975,
+          0.48946649999999997
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 2.8900000000000003e-06,
+              "total_s": 1.1400000000000001e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.680000000000001e-06,
+              "total_s": 8.51e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 4.4621000000000005e-05,
+              "total_s": 4.4621000000000005e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 8.300000000000001e-07,
+              "total_s": 8.300000000000001e-07
+            }
+          ],
+          "retained_bytes": 56,
+          "peak_bytes": 104,
+          "key_count": 0
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 2.9e-06,
+              "total_s": 1.0680000000000001e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.15e-06,
+              "total_s": 7.78e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 3.6021e-05,
+              "total_s": 3.6021e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 6.3e-07,
+              "total_s": 6.3e-07
+            }
+          ],
+          "retained_bytes": 56,
+          "peak_bytes": 104,
+          "key_count": 0
+        }
+      },
+      "speedup": 0.9710760470291241
+    },
+    "single": {
+      "config": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        false
+      ],
+      "loops_per_repeat": 10000,
+      "latency_us": {
+        "baseline": [
+          5.7020986,
+          5.692453400000001,
+          5.681545,
+          5.7112438,
+          5.6953264
+        ],
+        "candidate": [
+          5.7783907,
+          5.7872999,
+          5.7575292,
+          5.7657243,
+          5.7467129
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 2.5391e-05,
+              "total_s": 4.2761e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 1,
+              "self_s": 3.13e-06,
+              "total_s": 3.13e-06
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 1,
+              "self_s": 1.0900000000000002e-06,
+              "total_s": 1.0900000000000002e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 8.360000000000001e-06,
+              "total_s": 9.32e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 3.9971e-05,
+              "total_s": 3.9971e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 1,
+              "self_s": 1.4400000000000002e-06,
+              "total_s": 1.4400000000000002e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 2,
+              "self_s": 1.4700000000000001e-06,
+              "total_s": 1.4700000000000001e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 1,
+              "self_s": 6.4e-07,
+              "total_s": 6.4e-07
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 9.600000000000001e-07,
+              "total_s": 9.600000000000001e-07
+            }
+          ],
+          "retained_bytes": 675,
+          "peak_bytes": 1308,
+          "key_count": 1
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 2.305e-05,
+              "total_s": 3.8621e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 1,
+              "self_s": 2.9e-06,
+              "total_s": 2.9e-06
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 1,
+              "self_s": 1.3e-06,
+              "total_s": 1.3e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 6.9910000000000005e-06,
+              "total_s": 7.721000000000001e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 3.5680000000000004e-05,
+              "total_s": 3.5680000000000004e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 1,
+              "self_s": 1.23e-06,
+              "total_s": 1.23e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 2,
+              "self_s": 1.2200000000000002e-06,
+              "total_s": 1.2200000000000002e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 1,
+              "self_s": 9.300000000000001e-07,
+              "total_s": 9.300000000000001e-07
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 7.3e-07,
+              "total_s": 7.3e-07
+            }
+          ],
+          "retained_bytes": 675,
+          "peak_bytes": 1308,
+          "key_count": 1
+        }
+      },
+      "speedup": 0.987790276409852
+    },
+    "single_layerwise": {
+      "config": [
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        4,
+        true
+      ],
+      "loops_per_repeat": 3973,
+      "latency_us": {
+        "baseline": [
+          26.95291014346841,
+          26.901227032469166,
+          27.21713818273345,
+          27.551099169393403,
+          27.211474704253714
+        ],
+        "candidate": [
+          27.001547193556508,
+          26.909556003020388,
+          27.134780266800906,
+          27.195748301031966,
+          27.154576894034733
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 212,
+              "function": "to_string",
+              "calls": 8,
+              "self_s": 1.5771000000000002e-05,
+              "total_s": 1.5771000000000002e-05
+            },
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 3.1360000000000005e-05,
+              "total_s": 9.6563e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 178,
+              "function": "split_layers",
+              "calls": 2,
+              "self_s": 1.687e-05,
+              "total_s": 2.216e-05
+            },
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 313,
+              "function": "<genexpr>",
+              "calls": 10,
+              "self_s": 7.641e-06,
+              "total_s": 2.3412000000000002e-05
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 2,
+              "self_s": 1.93e-06,
+              "total_s": 1.93e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.14e-06,
+              "total_s": 8.200000000000001e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 3.9051e-05,
+              "total_s": 3.9051e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 1,
+              "self_s": 1.381e-06,
+              "total_s": 1.381e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 9,
+              "self_s": 4.06e-06,
+              "total_s": 4.06e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'extend' of 'list' objects>",
+              "calls": 2,
+              "self_s": 6.300000000000001e-06,
+              "total_s": 2.9712000000000003e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 1,
+              "self_s": 8.7e-07,
+              "total_s": 8.7e-07
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.06e-06,
+              "total_s": 1.06e-06
+            }
+          ],
+          "retained_bytes": 2232,
+          "peak_bytes": 3657,
+          "key_count": 8
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 2.9212e-05,
+              "total_s": 9.2632e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 212,
+              "function": "to_string",
+              "calls": 8,
+              "self_s": 1.5250000000000001e-05,
+              "total_s": 1.5250000000000001e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 178,
+              "function": "split_layers",
+              "calls": 2,
+              "self_s": 1.6970000000000002e-05,
+              "total_s": 2.215e-05
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 2,
+              "self_s": 1.95e-06,
+              "total_s": 1.95e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 6.3200000000000005e-06,
+              "total_s": 7.3e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 316,
+              "function": "<genexpr>",
+              "calls": 10,
+              "self_s": 7.4600000000000006e-06,
+              "total_s": 2.271e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 3.6081e-05,
+              "total_s": 3.6081e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 1,
+              "self_s": 1.0000000000000002e-06,
+              "total_s": 1.0000000000000002e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 9,
+              "self_s": 4.000000000000001e-06,
+              "total_s": 4.000000000000001e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'extend' of 'list' objects>",
+              "calls": 2,
+              "self_s": 6.46e-06,
+              "total_s": 2.917e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 1,
+              "self_s": 8.8e-07,
+              "total_s": 8.8e-07
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 9.800000000000001e-07,
+              "total_s": 9.800000000000001e-07
+            }
+          ],
+          "retained_bytes": 2232,
+          "peak_bytes": 3657,
+          "key_count": 8
+        }
+      },
+      "speedup": 1.002826425594706
+    },
+    "long_prompt": {
+      "config": [
+        1024,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        false
+      ],
+      "loops_per_repeat": 22,
+      "latency_us": {
+        "baseline": [
+          5202.819272727273,
+          5201.228318181818,
+          5407.948545454546,
+          5206.284363636363,
+          5219.697045454546
+        ],
+        "candidate": [
+          757.0199090909091,
+          755.719409090909,
+          758.289,
+          762.7364090909091,
+          756.3185
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.0073502080000000004,
+              "total_s": 0.01166064
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 1024,
+              "self_s": 0.001811651,
+              "total_s": 0.001811651
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 1024,
+              "self_s": 0.000576585,
+              "total_s": 0.000576585
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 4.9000000000000005e-06,
+              "total_s": 5.75e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 5.0782e-05,
+              "total_s": 5.0782e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 1024,
+              "self_s": 0.000529733,
+              "total_s": 0.000529733
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 2048,
+              "self_s": 0.0008048380000000001,
+              "total_s": 0.0008048380000000001
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 1024,
+              "self_s": 0.000342178,
+              "total_s": 0.000342178
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 8.5e-07,
+              "total_s": 8.5e-07
+            }
+          ],
+          "retained_bytes": 290768,
+          "peak_bytes": 291433,
+          "key_count": 1024
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.001652795,
+              "total_s": 0.00291617
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 1,
+              "self_s": 3.85e-06,
+              "total_s": 3.85e-06
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 1,
+              "self_s": 2.42e-06,
+              "total_s": 2.42e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 8.161e-06,
+              "total_s": 8.881e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 5.1331e-05,
+              "total_s": 5.1331e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 1024,
+              "self_s": 0.00047921300000000003,
+              "total_s": 0.00047921300000000003
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 1025,
+              "self_s": 0.00047327400000000004,
+              "total_s": 0.00047327400000000004
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'removesuffix' of 'str' objects>",
+              "calls": 1,
+              "self_s": 1.3600000000000001e-06,
+              "total_s": 1.3600000000000001e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 1024,
+              "self_s": 0.000294107,
+              "total_s": 0.000294107
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 7.200000000000001e-07,
+              "total_s": 7.200000000000001e-07
+            }
+          ],
+          "retained_bytes": 290824,
+          "peak_bytes": 291541,
+          "key_count": 1024
+        }
+      },
+      "speedup": 6.87734140293416
+    },
+    "multi_pp_heads": {
+      "config": [
+        256,
+        8,
+        1,
+        1,
+        4,
+        1,
+        32,
+        false
+      ],
+      "loops_per_repeat": 3,
+      "latency_us": {
+        "baseline": [
+          30819.339666666667,
+          30378.63766666667,
+          30255.641,
+          30383.578,
+          30150.745
+        ],
+        "candidate": [
+          1161.942,
+          1176.299,
+          1145.585,
+          1176.4256666666668,
+          1163.0686666666668
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.032789785,
+              "total_s": 0.057141989000000004
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 8192,
+              "self_s": 0.014950773,
+              "total_s": 0.014950773
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 8192,
+              "self_s": 0.004324251,
+              "total_s": 0.004324251
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.000000000000001e-06,
+              "total_s": 8.09e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 5.8581e-05,
+              "total_s": 5.8581e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 256,
+              "self_s": 0.000137049,
+              "total_s": 0.000137049
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 8448,
+              "self_s": 0.0034405020000000002,
+              "total_s": 0.0034405020000000002
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 256,
+              "self_s": 9.9312e-05,
+              "total_s": 9.9312e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.0900000000000002e-06,
+              "total_s": 1.0900000000000002e-06
+            }
+          ],
+          "retained_bytes": 1614288,
+          "peak_bytes": 1614985,
+          "key_count": 8192
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.001227919,
+              "total_s": 0.001749008
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 32,
+              "self_s": 6.0371e-05,
+              "total_s": 6.0371e-05
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 32,
+              "self_s": 1.893e-05,
+              "total_s": 1.893e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 8.34e-06,
+              "total_s": 9.270000000000001e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 4.7962000000000006e-05,
+              "total_s": 4.7962000000000006e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 256,
+              "self_s": 0.00011769100000000001,
+              "total_s": 0.00011769100000000001
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 288,
+              "self_s": 0.00020628400000000002,
+              "total_s": 0.00020628400000000002
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'removesuffix' of 'str' objects>",
+              "calls": 32,
+              "self_s": 1.5680000000000002e-05,
+              "total_s": 1.5680000000000002e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 256,
+              "self_s": 8.6443e-05,
+              "total_s": 8.6443e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 9.300000000000001e-07,
+              "total_s": 9.300000000000001e-07
+            }
+          ],
+          "retained_bytes": 1614344,
+          "peak_bytes": 1619098,
+          "key_count": 8192
+        }
+      },
+      "speedup": 26.119384467411784
+    },
+    "multi_cp_pp_heads": {
+      "config": [
+        128,
+        8,
+        1,
+        4,
+        4,
+        2,
+        32,
+        false
+      ],
+      "loops_per_repeat": 1,
+      "latency_us": {
+        "baseline": [
+          61573.741,
+          63241.287,
+          63432.953,
+          63381.671,
+          63191.095
+        ],
+        "candidate": [
+          3292.83,
+          3196.987,
+          3225.189,
+          3190.628,
+          3259.529
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.06419674,
+              "total_s": 0.11271866600000001
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 16384,
+              "self_s": 0.029982477,
+              "total_s": 0.029982477
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 16384,
+              "self_s": 0.008944512,
+              "total_s": 0.008944512
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.71e-06,
+              "total_s": 9.04e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 6.8872e-05,
+              "total_s": 6.8872e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 128,
+              "self_s": 7.2902e-05,
+              "total_s": 7.2902e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 16512,
+              "self_s": 0.006587789,
+              "total_s": 0.006587789
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 128,
+              "self_s": 5.8590000000000007e-05,
+              "total_s": 5.8590000000000007e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.3300000000000002e-06,
+              "total_s": 1.3300000000000002e-06
+            }
+          ],
+          "retained_bytes": 3203440,
+          "peak_bytes": 3204137,
+          "key_count": 16384
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.002713024,
+              "total_s": 0.003457504
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 128,
+              "self_s": 0.000238797,
+              "total_s": 0.000238797
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 128,
+              "self_s": 7.361100000000001e-05,
+              "total_s": 7.361100000000001e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 9.610000000000001e-06,
+              "total_s": 1.075e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 5.3541e-05,
+              "total_s": 5.3541e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 128,
+              "self_s": 6.6961e-05,
+              "total_s": 6.6961e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 256,
+              "self_s": 0.00022803500000000002,
+              "total_s": 0.00022803500000000002
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'removesuffix' of 'str' objects>",
+              "calls": 128,
+              "self_s": 5.8052000000000006e-05,
+              "total_s": 5.8052000000000006e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 128,
+              "self_s": 4.5393000000000004e-05,
+              "total_s": 4.5393000000000004e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.14e-06,
+              "total_s": 1.14e-06
+            }
+          ],
+          "retained_bytes": 3203496,
+          "peak_bytes": 3220826,
+          "key_count": 16384
+        }
+      },
+      "speedup": 19.60855224298483
+    },
+    "replicated_kv_heads": {
+      "config": [
+        512,
+        8,
+        4,
+        2,
+        2,
+        2,
+        16,
+        false
+      ],
+      "loops_per_repeat": 7,
+      "latency_us": {
+        "baseline": [
+          16576.735285714287,
+          16151.30357142857,
+          16193.950571428571,
+          16165.906857142856,
+          16144.384857142857
+        ],
+        "candidate": [
+          773.567,
+          775.9398571428571,
+          779.6371428571429,
+          777.0927142857144,
+          778.02
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.018903727000000002,
+              "total_s": 0.031700801
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 4096,
+              "self_s": 0.0073788510000000005,
+              "total_s": 0.0073788510000000005
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 4096,
+              "self_s": 0.0022678390000000002,
+              "total_s": 0.0022678390000000002
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.360000000000001e-06,
+              "total_s": 8.51e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 4.8961e-05,
+              "total_s": 4.8961e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 512,
+              "self_s": 0.000267015,
+              "total_s": 0.000267015
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 4608,
+              "self_s": 0.0018933130000000002,
+              "total_s": 0.0018933130000000002
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 512,
+              "self_s": 0.00020090600000000002,
+              "total_s": 0.00020090600000000002
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.15e-06,
+              "total_s": 1.15e-06
+            }
+          ],
+          "retained_bytes": 831920,
+          "peak_bytes": 832617,
+          "key_count": 4096
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.001166535,
+              "total_s": 0.0018859220000000002
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 166,
+              "function": "to_string",
+              "calls": 8,
+              "self_s": 1.7271e-05,
+              "total_s": 1.7271e-05
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 8,
+              "self_s": 6.480000000000001e-06,
+              "total_s": 6.480000000000001e-06
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 7.93e-06,
+              "total_s": 8.76e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 4.6961e-05,
+              "total_s": 4.6961e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 512,
+              "self_s": 0.000247315,
+              "total_s": 0.000247315
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 520,
+              "self_s": 0.000278938,
+              "total_s": 0.000278938
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'removesuffix' of 'str' objects>",
+              "calls": 8,
+              "self_s": 4.6400000000000005e-06,
+              "total_s": 4.6400000000000005e-06
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 512,
+              "self_s": 0.000153873,
+              "total_s": 0.000153873
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 8.300000000000001e-07,
+              "total_s": 8.300000000000001e-07
+            }
+          ],
+          "retained_bytes": 831976,
+          "peak_bytes": 833586,
+          "key_count": 4096
+        }
+      },
+      "speedup": 20.803060638655175
+    },
+    "layerwise": {
+      "config": [
+        128,
+        8,
+        1,
+        2,
+        4,
+        2,
+        32,
+        true
+      ],
+      "loops_per_repeat": 1,
+      "latency_us": {
+        "baseline": [
+          154969.896,
+          153432.344,
+          153752.543,
+          152875.179,
+          153445.355
+        ],
+        "candidate": [
+          14241.272,
+          14489.968,
+          14387.695,
+          14281.432,
+          14459.177
+        ]
+      },
+      "profiles": {
+        "baseline": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 212,
+              "function": "to_string",
+              "calls": 65536,
+              "self_s": 0.11773848,
+              "total_s": 0.11773848
+            },
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.012450156,
+              "total_s": 0.30855659500000004
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 178,
+              "function": "split_layers",
+              "calls": 2048,
+              "self_s": 0.083231816,
+              "total_s": 0.11737330100000001
+            },
+            {
+              "file": "../../out/baseline-pool_scheduler.py",
+              "line": 313,
+              "function": "<genexpr>",
+              "calls": 67584,
+              "self_s": 0.041990577,
+              "total_s": 0.159729057
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 2048,
+              "self_s": 0.001312042,
+              "total_s": 0.001312042
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 9.05e-06,
+              "total_s": 1.018e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 6.362200000000001e-05,
+              "total_s": 6.362200000000001e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 128,
+              "self_s": 9.598e-05,
+              "total_s": 9.598e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 65664,
+              "self_s": 0.022492999000000003,
+              "total_s": 0.022492999000000003
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'extend' of 'list' objects>",
+              "calls": 2048,
+              "self_s": 0.016984961,
+              "total_s": 0.176714018
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 128,
+              "self_s": 8.4301e-05,
+              "total_s": 8.4301e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.13e-06,
+              "total_s": 1.13e-06
+            }
+          ],
+          "retained_bytes": 12923424,
+          "peak_bytes": 12927570,
+          "key_count": 65536
+        },
+        "candidate": {
+          "calls": [
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 285,
+              "function": "_generate_store_query_keys",
+              "calls": 1,
+              "self_s": 0.010244293,
+              "total_s": 0.013186072
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 212,
+              "function": "to_string",
+              "calls": 512,
+              "self_s": 0.000896829,
+              "total_s": 0.000896829
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 178,
+              "function": "split_layers",
+              "calls": 16,
+              "self_s": 0.000667568,
+              "total_s": 0.0009367350000000001
+            },
+            {
+              "file": "<string>",
+              "line": 2,
+              "function": "__init__",
+              "calls": 16,
+              "self_s": 1.397e-05,
+              "total_s": 1.397e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/metadata.py",
+              "line": 332,
+              "function": "get_group_cache_family",
+              "calls": 1,
+              "self_s": 9e-06,
+              "total_s": 1.008e-05
+            },
+            {
+              "file": "/mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/pool_scheduler.py",
+              "line": 316,
+              "function": "<genexpr>",
+              "calls": 528,
+              "self_s": 0.00035928800000000003,
+              "total_s": 0.0012561170000000002
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+              "calls": 1,
+              "self_s": 6.2542e-05,
+              "total_s": 6.2542e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'hex' of 'bytes' objects>",
+              "calls": 128,
+              "self_s": 7.987100000000001e-05,
+              "total_s": 7.987100000000001e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'append' of 'list' objects>",
+              "calls": 640,
+              "self_s": 0.000247336,
+              "total_s": 0.000247336
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'extend' of 'list' objects>",
+              "calls": 16,
+              "self_s": 0.00028896600000000004,
+              "total_s": 0.001545083
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<method 'removesuffix' of 'str' objects>",
+              "calls": 512,
+              "self_s": 0.000213214,
+              "total_s": 0.000213214
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.isinstance>",
+              "calls": 128,
+              "self_s": 6.441300000000001e-05,
+              "total_s": 6.441300000000001e-05
+            },
+            {
+              "file": "~",
+              "line": 0,
+              "function": "<built-in method builtins.len>",
+              "calls": 1,
+              "self_s": 1.08e-06,
+              "total_s": 1.08e-06
+            }
+          ],
+          "retained_bytes": 12927488,
+          "peak_bytes": 12996170,
+          "key_count": 65536
+        }
+      },
+      "speedup": 10.665040856092656
+    }
+  }
+}

@@ -1,0 +1,24 @@
+...F..                                                                   [100%]
+=================================== FAILURES ===================================
+___ TestStoreQueryKeys.test_metadata_construction_does_not_scale_with_blocks ___
+
+self = <tests.ut.distributed.ascend_store.test_store_query_keys.TestStoreQueryKeys testMethod=test_metadata_construction_does_not_scale_with_blocks>
+
+    def test_metadata_construction_does_not_scale_with_blocks(self):
+        scheduler = self._scheduler()
+        hashes = [i.to_bytes(32, "big") for i in range(128)]
+        for layers in (False, True):
+            with (
+                self.subTest(layers=layers),
+                patch.object(pool_scheduler, "KeyMetadata", wraps=KeyMetadata) as metadata,
+            ):
+                actual = scheduler._generate_store_query_keys(hashes, layers)
+                rank_count = scheduler.dcp_size * (scheduler.tp_size // scheduler.put_step)
+                rank_count *= 1 if layers else scheduler.pp_size
+>               self.assertLessEqual(metadata.call_count, rank_count)
+E               AssertionError: 3072 not less than or equal to 24
+
+tests/ut/distributed/ascend_store/test_store_query_keys.py:119: AssertionError
+=========================== short test summary info ============================
+FAILED tests/ut/distributed/ascend_store/test_store_query_keys.py::TestStoreQueryKeys::test_metadata_construction_does_not_scale_with_blocks
+1 failed, 5 passed in 0.55s

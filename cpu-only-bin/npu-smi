@@ -1,0 +1,3 @@
+#!/bin/sh
+# Select the repository CPU-unit-test bootstrap only.
+exit 1

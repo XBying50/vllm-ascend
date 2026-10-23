@@ -1,0 +1,25 @@
+........................................................................ [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 22%]
+........................................................................ [ 30%]
+........................................................................ [ 37%]
+........................................................................ [ 45%]
+........................................................................ [ 52%]
+........................................................................ [ 60%]
+........................................................................ [ 68%]
+........................................................................ [ 75%]
+........................................................................ [ 83%]
+....................................................s..s..s..s..s..s..s. [ 90%]
+.s..s..s..s..s.......................................................... [ 98%]
+...............                                                          [100%]
+=============================== warnings summary ===============================
+../../.venv-full/lib/python3.12/site-packages/transformers/loss/loss_for_object_detection.py:27
+  /mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/.venv-full/lib/python3.12/site-packages/transformers/loss/loss_for_object_detection.py:27: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+    from scipy.optimize import linear_sum_assignment
+
+../../.venv-full/lib/python3.12/site-packages/torch/jit/_script.py:362: 14 warnings
+  /mnt/workspace/DeepSeekWorkspace/cg_oj_v3/workspaces/hiascend-community-20261023/.venv-full/lib/python3.12/site-packages/torch/jit/_script.py:362: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+939 passed, 12 skipped, 15 warnings in 65.62s (0:01:05)

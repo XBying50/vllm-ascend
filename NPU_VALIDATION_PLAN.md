@@ -1,0 +1,11 @@
+# Remaining NPU acceptance work
+
+The code change is confined to CPU query-key generation. CPU compatibility, full AscendStore UTs, function latency, profile calls and bounded per-call memory have been checked. This document describes the remaining acceptance plan. Executed checks and failures are recorded separately in NPU_VALIDATION_STATUS.md; none of the partial runs establishes full acceptance.
+
+1. Use a dedicated compatible A2/A3 environment with compiled vLLM-Ascend operators and a supported Mooncake or Memcache backend. Follow `docs/source/user_guide/feature_guide/kv_cache_pool_ascend_store.md`. The current shared host exposes one 910B3; multi-PP/TP hardware runs need additional cards. Do not change global huge-page settings, clear shared logs, restart shared services or overwrite another agent's environment.
+2. Freeze the same model weights/tokenizer, seeds, prompts and runtime versions for baseline and candidate. Start with one-card dense-model inference, then the task's multi-head/TP and multi-PP configurations on suitable hardware. Record model, card model/count, TP/PP/PCP/DCP, block size and layerwise mode.
+3. Populate the remote pool with the baseline, restart or reset only the isolated local prefix cache, and query with the candidate. Compare token IDs/output accuracy, reported loaded keys and cache-hit token counts. Reverse reader/writer versions to verify stored-key compatibility in both directions. Test empty/short/long prompts and missing keys in one rank/layer.
+4. Compare cold and warm lookup runs, and serving throughput/latency, with at least three paired repeats under the same request schedule. Record key generation CPU time separately from store/network/NPU time; do not infer whole-model speedup from the microbenchmark.
+5. Check repeated-request RSS/peak memory and transient prefix allocation. Preserve raw logs/profiles and report any skips or performance regressions before submission for acceptance.
+
+The existing `tests/e2e/cases/features/kv_pool/test_kvpp_pool.py` illustrates real output equality and `ascend_store_load_get_keys_total` checks, but its GLM model, TP=8 and A3 configuration cannot be represented as a one-card local test. The older Qwen accuracy example currently has its KV connector commented out and is not sufficient alone for this task.

@@ -1,0 +1,15 @@
+{
+  "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "NPU_VALIDATION_PLAN.md": "3f42021cd3e08162e205fd4ab45ec3e7d278bc879516ef63ace0e071f5222e2e",
+  "NPU_VALIDATION_STATUS.md": "60a8de93796695f4af4b506050e765e1224d3fc9dbb29d21fbf6326da86203ff",
+  "README.md": "04918ba7079f020b2069bb53803634e0f4db8da4841fa3d7b760dcbedf1be70c",
+  "baseline-pool_scheduler.py": "cddb93d98cf8766052670347fe82b18cdde97899b20aaa84f0af1d23c1ae6961",
+  "benchmark_query_keys.py": "1d6abc00e922bd1bacdd778a254d029c7c93e9504620bcdd2d5aeed3793c22b0",
+  "cpu-only-bin/npu-smi": "0d5a286d3b3878341eec978c9b634042415d26182c768471a8056e595ec795f5",
+  "results/benchmark.json": "098b1e4dfb5e3bee69595543969e2a71065bfa86d0228f8b79f39aeadc112393",
+  "results/benchmark.log": "5442f60c23488bde832b03b8608e65a642bd8fb4181906f1acdcbd8e35db8038",
+  "results/cpu-tests.log": "0afdf91a7b0bb1854a41a3cad7f95ad7b6519ef97aa06bb2ada0f2a36840afca",
+  "results/format-ci.log": "61551b98eaf391e93b0062acbdcd66300e5cd272ac4f49c356bcbe7fce82ebbf",
+  "results/regression-on-baseline.log": "e043a5744aa04b071c0322cca80101d7cb270db225f8fb607907c5ea2462c821",
+  "run_cpu_benchmark.py": "285cde2e3c69b183a6cd8f1891bccdbc6c34ec5a9df813bf033866694e1ec4fd"
+}
